@@ -14,7 +14,8 @@ export class FilterListPipe implements PipeTransform {
     const filterType = type === 'unknown' ? null : type.toLowerCase();
 
     return value?.filter((item: IRepositories) => {
-      return item.language ? item.language.toLowerCase() === filterType : null;
+      const val = item.language ? item.language.toLowerCase() : null
+      return val === filterType;
     });
   }
 }
