@@ -1,0 +1,23 @@
+<div class="trending-repo__filters" [formGroup]="filterForm">
+  <h1>Repositories</h1>
+  <mat-form-field>
+    <mat-label>Language</mat-label>
+    <mat-select formControlName="language">
+      @for (language of languages; track language)  {
+        <mat-option [value]="language.key">{{language.value}}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+</div>
+
+@if((trendingRepoList$ | async); as trendingRepoList) {
+  <app-trending-repo-list
+    [trendingRepoList]="trendingRepoList | filterList: formValue['language']"
+    [selectedLanguage]="formValue['language']"
+    data-test-id="trending-repo-list"
+  ></app-trending-repo-list>
+} @else {
+  <div class="trending-repo__spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+}

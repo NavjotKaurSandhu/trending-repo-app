@@ -1,0 +1,7 @@
+{
+    "/search": {
+      "target": "https://api.github.com",
+      "secure": false,
+      "changeOrigin": true
+    }
+  }

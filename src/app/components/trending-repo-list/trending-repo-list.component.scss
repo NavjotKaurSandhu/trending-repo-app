@@ -1,0 +1,10 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: var(--tpa-spacing-4);
+}
+
+
+.trending-repo-list__card-header {
+  padding: var(--tpa-spacing-6);
+}

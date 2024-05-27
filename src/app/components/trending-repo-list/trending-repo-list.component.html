@@ -1,0 +1,17 @@
+@if((trendingRepoList().length > 0)) {
+    @for (repo of trendingRepoList(); track repo.id) {
+        <app-trending-repo-detail data-test-id="trending-repo-detail" [trendingRepo]="repo"></app-trending-repo-detail>
+    }
+} @else {
+    <mat-card>
+        <mat-card-header class="trending-repo-list__card-header">
+            <mat-card-title data-test-id="trending-repo-empty-message">
+                @if(selectedLanguage()) {
+                    It looks like we don’t have any trending repositories for {{selectedLanguage()}}.
+                } @else {
+                    It looks like we don’t have any trending repositories.
+                }
+            </mat-card-title>
+        </mat-card-header>
+    </mat-card>
+}

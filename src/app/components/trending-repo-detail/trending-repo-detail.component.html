@@ -1,0 +1,46 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title-group>
+      <mat-card-title>
+        <a
+          [href]="trendingRepo().html_url"
+          target="_blank"
+          class="trending-repo-detail__header"
+          data-test-id="trending-repo-detail-header"
+        >
+          {{ trendingRepo().full_name }}
+        </a>
+      </mat-card-title>
+      <button mat-stroked-button (click)="starRepo(trendingRepo().id)" data-test-id="trending-repo-detail-button">
+        <i
+          [class]="
+            starredRepoList()[trendingRepo().id]
+              ? 'fa-solid fa-star'
+              : 'fa-regular fa-star'
+          "
+        ></i>
+        {{ starredRepoList()[trendingRepo().id] ? "Starred" : "Star" }}
+      </button>
+    </mat-card-title-group>
+  </mat-card-header>
+  <mat-card-content>
+    <p class="trending-repo-detail__description">
+      {{ trendingRepo().description }}
+    </p>
+    <div class="trending-repo-detail__actions">
+      @if(trendingRepo().language) {
+      <span class="trending-repo-detail__language">
+        {{ trendingRepo().language }}
+      </span>
+      }
+      <div class="trending-repo-detail__counts">
+        <i class="fa-regular fa-star"></i>
+        <span>{{ trendingRepo().stargazers_count }}</span>
+      </div>
+      <div class="trending-repo-detail__counts">
+        <i class="fa-solid fa-code-fork"></i>
+        <span>{{ trendingRepo().forks_count }}</span>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

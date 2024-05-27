@@ -1,0 +1,15 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: var(--tpa-spacing-4);
+}
+
+.trending-repo__spinner {
+  align-self: center;
+}
+
+.trending-repo__filters {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
